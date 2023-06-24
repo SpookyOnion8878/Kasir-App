@@ -4,7 +4,7 @@ import { numberWithCommas } from "../utils/utils.js";
 
 const Menus = ({ menu }) => {
   return (
-    <Col md={4} xs={6} className="mb-4">
+    <Col md="4" xs="4" className="mb-4">
       <Card className="shadow">
         <Card.Img
           variant="top"
@@ -18,7 +18,7 @@ const Menus = ({ menu }) => {
         <Card.Body>
           <Card.Title>
             {menu.nama}
-            <strong>({menu.kode}) </strong>
+            <strong> ({menu.kode}) </strong>
           </Card.Title>
           <Card.Text>Rp. {numberWithCommas(menu.harga)}</Card.Text>
         </Card.Body>
