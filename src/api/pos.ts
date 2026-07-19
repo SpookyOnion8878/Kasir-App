@@ -28,14 +28,14 @@ export const addCartItem = async (
 };
 
 export const updateCartItem = async (
-  id: number,
+  id: string,
   item: Partial<CartItem>,
 ): Promise<CartItem> => {
   const { data } = await api.put<CartItem>(`${ENDPOINTS.cart}/${id}`, item);
   return data;
 };
 
-export const removeCartItem = async (id: number): Promise<void> => {
+export const removeCartItem = async (id: string): Promise<void> => {
   await api.delete(`${ENDPOINTS.cart}/${id}`);
 };
 

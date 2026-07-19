@@ -1,30 +1,30 @@
-import { useEffect } from 'react';
-import { Col, Row, Container, ListGroup, Button } from 'react-bootstrap';
+import { Col, Row, Container, ListGroup, Button, Alert } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faPlus,
-  faMinus,
-  faTrash,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faMinus, faTrash, faBroom } from '@fortawesome/free-solid-svg-icons';
 import { formatCurrency } from '../utils/format';
 import { useCart } from '../context/CartContext';
 import CartSummary from '../components/CartSummary';
 import CheckoutBar from '../components/CheckoutBar';
 
 export default function CartPage() {
-  const { items, incrementItem, decrementItem, removeItem, loading } =
+  const { items, incrementItem, decrementItem, removeItem, clearCart, loading, error } =
     useCart();
-
-  useEffect(() => {
-    // Cart is loaded by the provider; nothing to fetch here.
-  }, []);
 
   return (
     <Container fluid className="mt-3">
-      <h3>
-        <strong>Your Cart</strong>
-      </h3>
+      <div className="d-flex justify-content-between align-items-center">
+        <h3 className="mb-0">
+          <strong>Your Cart</strong>
+        </h3>
+        {items.length > 0 && (
+          <Button variant="outline-danger" size="sm" onClick={() => clearCart()}>
+            <FontAwesomeIcon icon={faBroom} className="me-2" />
+            Clear cart
+          </Button>
+        )}
+      </div>
       <hr />
+      {error && <Alert variant="danger">{error}</Alert>}
       {loading ? (
         <p>Loading…</p>
       ) : items.length === 0 ? (

@@ -22,11 +22,11 @@ export default function CheckoutBar() {
         showConfirmButton: false,
       });
       navigate('/success');
-    } catch (err) {
-      console.error(err);
+    } catch {
+      // checkout() already restored the cart and set an error message.
       Swal.fire({
         title: 'Error',
-        text: 'Failed to place order. Please try again.',
+        text: 'Checkout failed. Please try again.',
         icon: 'error',
       });
     }
