@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  font-family: 'Public Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar {
+  background-color: #22668a;
+}
+
+.category-active {
+  background-color: #22668a;
+  color: white;
+}
+
+.btn-primary {
+  background-color: #22668a;
+  border-color: #22668a;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #1b5270;
+  border-color: #1b5270;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
